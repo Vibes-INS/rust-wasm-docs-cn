@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 500;
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    background-color: #fff;
+    color: #1d1d1f;
+    font-style: normal;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 288px;
+    height: 100%;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 20px 30px;
+}
+
+.sidebar ul li {
+    list-style: none;
+}
+
+.sidebar-title {
+    font-size: 14px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.sidebar-title a {
+    padding: 8px 0;
+    display: block;
+    color: rgb(107, 114, 128);
+    text-decoration: none;
+}
+
+.sidebar-title a:hover, .sidebar-title a:active, .sidebar-title a.active {
+    color: rgb(17, 24, 39);
+}
+
+.sidebar-title ul {
+    padding-left: 20px;
+}
+
+.sidebar-subtitle {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.article {
+    max-width: 864px;
+    margin: auto;
+    padding: 10px 10px 100px 288px;
+    font-weight: 400;
+    font-size: 15px;
+    width: 100%;
+}
+
+.article h1 {
+    font-size: 32px;
+    margin: 12px 0 0;
+}
+
+.article h2 {
+    font-size: 24px;
+    margin: 40px 0 12px;
+}
+
+.article h3 {
+    font-size: 20px;
+    margin: 40px 0 12px;
+}
+
+.article h4 {
+    font-size: 18px;
+    margin: 30px 0 12px;
+}
+
+.article h5 {
+    font-size: 16px;
+    margin: 30px 0 12px;
+}
+
+.article p {
+    line-height: 28px;
+    margin: 20px 0;
+    color: #6b7280;
+}
+
+.article a {
+    color: #5989f3;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+.article code {
+    color: #7c3aed;
+}
+
+.article code:before, .article code:after {
+    content: '`';
+}
+
+.article ul, .article ol  {
+    padding: 0 0 0 20px;
+}
+
+.article li {
+    padding: 8px 0;
+    color: #6b7280;
+}
+
+.article li p {
+    margin: 0;
+}
+
+.article table {
+    border-spacing: 0;
+}
+
+.article figure {
+    font-size: 14px;
+    background-color: rgba(27, 31, 35, 0.05);
+    overflow: auto;
+    position: relative;
+    border-right: 5px;
+}
+
+.article td.gutter {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #e7eaea;
+    text-align: right;
+}
+
+.article td.gutter .line {
+    color: rgba(27, 31, 35, 0.3);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.article td.code {
+    padding-left: 10px;
+}

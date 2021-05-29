@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= page.title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="app">
+        <nav class="sidebar">
+            <ul>
+                <%
+                    function sortFn(a, b) {
+                        const aNum = a.split('').filter(char => /\d/.test(char)).join('')
+                        const bNum = b.split('').filter(char => /\d/.test(char)).join('')
+                        return parseInt(aNum) - parseInt(bNum)
+                    }
+
+                    const menuMap = site.posts.reduce((acc, post) => {
+                        const names = post.slug.split('/')
+                        const name = names[0]
+                        const submenus = acc[name] || []
+                        submenus.push({ name: names[1], path: post.path })
+                        acc[name] = submenus
+                        return acc
+                    }, {})
+                    const menus = Object.keys(menuMap).sort(sortFn).map(key => {
+                        const submenus = menuMap[key] || []
+
+                        return {
+                            name: key,
+                            submenus: submenus.filter(submenu => submenu.name !== 'README').sort((a, b) => sortFn(a.name, b.name)),
+                            path: submenus.find(submenu => submenu.name === 'README')?.path || ''
+                        }
+                    })
+                %>
+
+                <% for (const menu of menus) { %>
+                    <li class="sidebar-title">
+                        <a href="<%- config.root %><%- menu.path %>"><%= menu.name %></a>
+                        <ul>
+                            <% for (const submenu of menu.submenus) { %>
+                                <li class="sidebar-subtitle">
+                                    <a href="<%- config.root %><%- submenu.path %>"><%= submenu.name %></a>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </li>
+                <% } %>
+            </ul>
+        </nav>
+        <article class="article">
+            <%- page.content %>
+        </article>
+    </main>
+</body>
+</html>

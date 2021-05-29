@@ -9,10 +9,11 @@
     "server": "node_modules/.bin/hexo server"
   },
   "hexo": {
-    "version": ""
+    "version": "5.4.0"
   },
   "dependencies": {
     "hexo": "^5.0.0",
+    "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-index": "^2.0.0",
@@ -22,5 +23,8 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
     "hexo-theme-landscape": "^0.0.3"
+  },
+  "devDependencies": {
+    "hexo-browsersync": "^0.3.0"
   }
 }
